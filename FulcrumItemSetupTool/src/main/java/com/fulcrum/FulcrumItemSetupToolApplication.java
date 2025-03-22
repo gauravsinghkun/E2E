@@ -20,5 +20,4 @@ public class FulcrumItemSetupToolApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FulcrumItemSetupToolApplication.class, args);
 	}
-
 }
