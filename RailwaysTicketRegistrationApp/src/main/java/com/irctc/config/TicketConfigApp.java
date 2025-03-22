@@ -19,7 +19,6 @@ public class TicketConfigApp {
 //	public Docket getDocketObject() {
 //		return new Docket(DocumentationType.SWAGGER_2).apiInfo(null);
 //	}
-//
 //	@Bean
 //	public ApiInfo getApiInfo() {
 //		return null;
