@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 public class TicketConfigApp {
 	
+	// For Swagger we have to put the annotation on top of the config class and use the docket and getAPiInfo object
 //    @Bean	
 //	public SecurityFilterChain doCustomAuthentication(HttpSecurity httpSecurity) throws Exception {
 //		httpSecurity.authorizeHttpRequests().requestMatchers("/getAllTickets").permitAll().anyRequest().authenticated().and().formLogin().and().oauth2Client();
