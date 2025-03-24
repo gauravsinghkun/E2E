@@ -29,12 +29,8 @@ public class ZomatoAdminController {
 	public ResponseEntity<List<AccountDetails>> getAllAccounts() {
 		System.out.println("ZomatoAdminController.getAllAccounts()");
 		WebClient webClient = WebClient.create();
-		List allAccountsList = webClient.get()
-				.uri(hostName + "/getAllAccounts")
-				.accept(MediaType.APPLICATION_JSON)
-				.retrieve()
-				.bodyToMono(List.class)
-				.block();
+		List allAccountsList = webClient.get().uri(hostName + "/getAllAccounts").accept(MediaType.APPLICATION_JSON)
+				.retrieve().bodyToMono(List.class).block();
 
 		return new ResponseEntity<List<AccountDetails>>(allAccountsList, HttpStatus.OK);
 	}
@@ -44,12 +40,8 @@ public class ZomatoAdminController {
 		WebClient webClient = WebClient.create();
 		HashMap<String, Integer> hashMap = new HashMap<>();
 		hashMap.put("accountId", 4);
-		AccountDetails accountDetails = webClient.get()
-				.uri(hostName + "/getAccountRecordByAccountId", hashMap)
-				.accept(MediaType.APPLICATION_JSON)
-				.retrieve()
-				.bodyToMono(AccountDetails.class)
-				.block();
+		AccountDetails accountDetails = webClient.get().uri(hostName + "/getAccountRecordByAccountId", hashMap)
+				.accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(AccountDetails.class).block();
 
 		return new ResponseEntity<AccountDetails>(accountDetails, HttpStatus.OK);
 	}
@@ -59,20 +51,16 @@ public class ZomatoAdminController {
 		RestTemplate restTemplate = new RestTemplate();
 		Map<Object, Object> hashMap = new HashMap<>();
 		hashMap.put("accountBalance", balance);
-		ResponseEntity<List> responseEntity = restTemplate.getForEntity(hostName + "/accountBalance/{accountBalance}",List.class, hashMap);
+		ResponseEntity<List> responseEntity = restTemplate.getForEntity(hostName + "/accountBalance/{accountBalance}",
+				List.class, hashMap);
 		return new ResponseEntity<List<AccountDetails>>(responseEntity.getBody(), HttpStatus.OK);
 	}
 
 	@PostMapping("/save")
 	public ResponseEntity<AccountDetails> saveAccountDetails(@RequestBody AccountDetails accountDetails) {
 		WebClient webClient = WebClient.create();
-		AccountDetails details = webClient.post()
-				.uri(hostName + "/save")
-				.body(BodyInserters.fromValue(accountDetails))
-				.accept(MediaType.APPLICATION_JSON)
-				.retrieve()
-				.bodyToMono(AccountDetails.class)
-				.block();
+		AccountDetails details = webClient.post().uri(hostName + "/save").body(BodyInserters.fromValue(accountDetails))
+				.accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(AccountDetails.class).block();
 
 		return new ResponseEntity<AccountDetails>(details, HttpStatus.CREATED);
 	}
