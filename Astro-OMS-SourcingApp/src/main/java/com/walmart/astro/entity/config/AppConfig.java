@@ -12,7 +12,7 @@ public class AppConfig {
 //		builder.inMemoryAuthentication(). withUser("root").password("{noop}").roles("manager","admin");
 //		builder.inMemoryAuthentication().withUser("user").password("{noop}").roles("customer");
 //	}
-//	
+
 //	@Bean
 //	public SecurityFilterChain doCustomAuth(HttpSecurity security) throws Exception {
 //		security.authorizeHttpRequests().requestMatchers("/api/v4/order/getAllOrders").hasAnyRole("manager")
@@ -20,7 +20,7 @@ public class AppConfig {
 //		.anyRequest().authenticated().and().formLogin();
 //		return security.build();
 //	}
-	
+
 //	@Bean
 //	public Docket getDocketObj() {
 //		return new Docket(DocumentationType.SWAGGER_2)

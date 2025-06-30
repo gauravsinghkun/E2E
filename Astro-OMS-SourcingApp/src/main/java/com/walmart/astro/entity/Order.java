@@ -1,5 +1,7 @@
 package com.walmart.astro.entity;
 
+import com.walmart.astro.entity.aspects.OrderAspects;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,11 @@ import lombok.ToString;
 @ToString
 public class Order {
 
+	
+	
+	public void sample() {
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderId;
